@@ -307,6 +307,25 @@
                     }
                 }
             }
+        },
+        "/provincias": {
+            "get": {
+                "tags": [
+                    "Provincias"
+                ],
+                "summary": "Retorna as províncias",
+                "operationId": "538182ffef0bfd831a3fc38e5b3e42aa",
+                "responses": {
+                    "200": {
+                        "description": "Lista de províncias",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

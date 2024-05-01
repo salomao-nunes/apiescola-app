@@ -270,6 +270,19 @@ class EscolaController extends Controller
     }
 
 
+        /**
+     * @OA\Get(
+     *     path="/provincias",
+     *     summary="Retorna as províncias",
+     *     tags={"Provincias"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista de províncias",
+     *         @OA\JsonContent()
+     *     ),
+     * )
+     */
+
     public function provinces(){
         // Ler o conteúdo do JSON
         $jsonContent = Storage::disk('public')->get('province.json');
