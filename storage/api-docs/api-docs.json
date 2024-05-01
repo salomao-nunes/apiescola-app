@@ -1,0 +1,312 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API DE ESCOLAS",
+        "description": "Esta api permite gerenciar informações sobre escolas.",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api"
+        }
+    ],
+    "paths": {
+        "/escolas": {
+            "get": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Lista todas as escolas",
+                "operationId": "9429f06ae1da52c05596679481ad8d08",
+                "responses": {
+                    "200": {
+                        "description": "Lista de escolas",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cadastrar-escola": {
+            "post": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Cadastra uma nova escola",
+                "operationId": "dccaf077c96fb2c5aca6589b74c45dc5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "numero_de_salas": {
+                                        "type": "integer"
+                                    },
+                                    "provincia": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Escola cadastrada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID da escola",
+                                            "type": "integer",
+                                            "format": "int64"
+                                        },
+                                        "nome": {
+                                            "description": "Nome da escola",
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "description": "Email da escola",
+                                            "type": "string",
+                                            "format": "email"
+                                        },
+                                        "numero_de_salas": {
+                                            "description": "Número de salas da escola",
+                                            "type": "integer"
+                                        },
+                                        "provincia": {
+                                            "description": "Província da escola",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/escola/{id}": {
+            "get": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Exibe os detalhes de uma escola",
+                "operationId": "84b086386732d30bce68531c12a9ba0c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da escola",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalhes da escola",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Escola não encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Atualiza os detalhes de uma escola",
+                "operationId": "39345a27b678322f374470555fff0fe2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da escola",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "numero_de_salas": {
+                                        "type": "integer"
+                                    },
+                                    "provincia": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Detalhes da escola atualizados com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID da escola",
+                                            "type": "integer",
+                                            "format": "int64"
+                                        },
+                                        "nome": {
+                                            "description": "Nome da escola",
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "description": "Email da escola",
+                                            "type": "string",
+                                            "format": "email"
+                                        },
+                                        "numero_de_salas": {
+                                            "description": "Número de salas da escola",
+                                            "type": "integer"
+                                        },
+                                        "provincia": {
+                                            "description": "Província da escola",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Escola não encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Remove uma escola",
+                "operationId": "0f928c08dee4038714d5c9cf01e2b656",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da escola",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Escola removida com sucesso"
+                    },
+                    "404": {
+                        "description": "Escola não encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/escolas/upload-excell": {
+            "post": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Faz o upload de um arquivo Excel para importação de escolas",
+                "operationId": "d105e16f699ce1051d4bb1e0b48b9a27",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "description": "Arquivo Excel para importação",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Dados da escola importados com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
